@@ -14,14 +14,21 @@ function App() {
         setMovieinfo(movie);
       })
       .catch((err) => {
-        console.log(err);
-      });
+        alert("Opps! didn't find the movie. Try again")
+        window.location.reload(true)
+      }); 
   }, [title]);
 
   function readTitle(value) {
     console.log(value);
     setTitle(value);
   }
+
+
+
+
+
+
 
   return (
     <div className="App">
@@ -34,7 +41,8 @@ function App() {
               placeholder="Enter movie name"
               className="search-field"
               onChange={(event) => {
-                readTitle(event.target.value);
+                readTitle(event.target.value)
+                event.preventDefault();
               }}
             />
           </div>
